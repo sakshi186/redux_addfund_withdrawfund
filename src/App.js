@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import {useSelector,useDispatch} from 'react-redux'
+import { ADD_FUND, WITHDRAW_FUND } from './constants';
 
 function App() {
+  //1. states
+  let state = useSelector((storeObject)=>{
+    return storeObject;
+  });
+  let dispatch = useDispatch();
+
+
+  //2. function definition
+  let clickMe=()=>{
+    let amount = parseInt(prompt("enter the value"))
+    //alert(amount)
+    //dispatch method
+    dispatch({type:ADD_FUND,amount:amount})
+  }
+  let clickMe2=()=>{
+    let amount = parseInt(prompt("enter the value"))
+    //alert(amount)
+    dispatch({type:WITHDRAW_FUND,amount:amount})
+  }
+  
+  //3.return statement
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>amount{state}</h1>
+       <div>
+         <button onClick={()=>{clickMe()}}>Add Fund</button>
+         <button onClick={()=>{clickMe2()}}>withdraw</button>
+       </div>
     </div>
   );
 }

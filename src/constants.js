@@ -1,0 +1,4 @@
+const ADD_FUND ="ADD_FUND"
+const WITHDRAW_FUND ="WITHDRAW_FUND"
+
+module.exports={ADD_FUND,WITHDRAW_FUND}
